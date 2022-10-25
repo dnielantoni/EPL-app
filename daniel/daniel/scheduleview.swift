@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct scheduleview: View {
+    @State private var animatingtitle = false
     var body: some View {
     NavigationView {
         ZStack{
@@ -20,6 +21,13 @@ struct scheduleview: View {
         .resizable()
         .scaledToFit()
         .clipped()
+        .offset(x : animatingtitle ? 4 : 0 , y : animatingtitle ? -10 : 0)
+        .scaleEffect(animatingtitle ? 1.2 : 1.0)
+        .onTapGesture {
+            withAnimation(.spring(response:0.1, dampingFraction: 0.7,blendDuration:0)){
+                animatingtitle.toggle()
+            }
+        }
         NavigationLink(
         destination: leivsmc(),
         label:{

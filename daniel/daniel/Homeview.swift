@@ -14,6 +14,7 @@ struct Homeview: View {
     }
     @State private var player = AVPlayer()
     @State private var selectedTab = 0
+    @State private var animationAmount = 1.0
     var body: some View {
         ZStack{
             CustomColor.myColor
@@ -25,6 +26,7 @@ struct Homeview: View {
                 .resizable()
                 .frame(width:400,height:200)
                 .position(x: 200, y: 90)
+                
             })
             Text("The Premier League is the definitive companion to the world's most watched league.")
                 .font(
